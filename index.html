@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crud op</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+  </head>
+  <body onload="showData()">
+
+    <form action="">
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      onclick="resetForm()"
+      id="addBtn"
+    >
+      Click for Enter your details
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Enter Details
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="container" id="myForm">
+              <div class="row">
+                <div class="form-group col-md-12 mb-3">
+                  <label for="name" class="mb-1">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter Name"
+                  />
+                </div>
+
+                <div class="form-group col-md-12 mb-3">
+                  <label for="email" class="mb-1">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter Your Email Address"
+                  />
+                </div>
+
+                <div class="form-group col-md-12 mb-3">
+                  <label for="number" class="mb-1">Mobile Number</label>
+                  <input
+                    type="tel" maxlength="10"
+                    name="number"
+                    class="form-control"
+                    id="number"
+                    placeholder="Enter Your mobile number"
+                  />
+                </div>
+
+                <div class="form-group col-md-12 mb-3">
+                  <label for="password" class="mb-1">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Enter password"
+                  />
+                </div>
+
+                <div class="form-group col-md-12 mb-3">
+                  <label for="birthdate" class="mb-1">Birth-Date</label>
+                  <input
+                    type="date"
+                    name="birthdate"
+                    class="form-control"
+                    id="date"
+                    required
+                  />
+                </div>
+
+                <div class="form-group col-md-12 mb-3">
+                  <label for="gender" class="mb-1">Select Gender</label
+                  >&nbsp;&nbsp;
+                  <input type="radio" id="male" name="gender" value="Male" required />
+                   <label for="male">Male</label>
+                  <input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    value="Female"
+                    required
+                  />
+                  <label for="female">Female</label>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button
+            id="Update"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              onclick="manageData()"
+            >
+              savechanges
+            </button>
+            <button type="button" id="saveBtn" class="btn btn-primary" data-bs-dismiss="modal" value="Submit" onclick="manageData()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+    <!-- table -->
+
+    <hr />
+    <div class="row mt-5 mx-4">
+      <div class="col-12">
+
+        <table class="table table-bordered text-white" id="crudTable">
+            <thead>
+                <tr>
+                    
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Number</td>
+                    <td>Password</td>
+                    <td>B-date</td>
+                    <td>gender</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
