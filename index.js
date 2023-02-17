@@ -196,7 +196,7 @@ function updateData(index) {
 
   document.querySelector("#Update").onclick = function () {
 
-    // if(validateForm()==true){
+    if(validateForm()==true){
     //   document.getElementById("saveBtn").setAttribute("data-bs-dismiss","modal")
     //   document.getElementById("Update").setAttribute("data-bs-dismiss","modal")
 
@@ -218,7 +218,7 @@ function updateData(index) {
 
     document.getElementById("saveBtn").style.display = "block";
     document.getElementById("Update").style.display = "none";
-    // }
+    }
     // else{
       // document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal")
       // document.getElementById("Update").removeAttribute("data-bs-dismiss","modal")
