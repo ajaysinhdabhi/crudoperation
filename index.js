@@ -1,3 +1,8 @@
+let currentDate = new Date().toJSON().slice(0, 10);
+console.log(currentDate);
+document.getElementById("date").setAttribute("max", currentDate);
+
+
 function validateForm(){
 
   var name = document.getElementById("name").value;

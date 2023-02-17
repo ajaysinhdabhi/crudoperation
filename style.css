@@ -1,6 +1,9 @@
-
+*{
+    overflow-x: hidden;
+}
 body{
     background: #1d2630;
+    overflow-x: hidden !important;
     
 }
 #Update{
@@ -11,5 +14,10 @@ table{
 }
 #number{
     
+}
+
+td{
+    width: 16vw;
+
 }
 
