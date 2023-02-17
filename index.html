@@ -18,11 +18,10 @@
     <form action="" class="needs-validation was-validated" novalidate id="myForm">
     <!-- Button trigger modal -->
     <button
-      type="reset"
+      type="button"
       class="btn btn-primary"
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
-      onclick="openmodal()"
       id="addBtn"
     >
       Click for Enter your details
@@ -32,7 +31,6 @@
     <div
       class="modal fade"
       id="exampleModal"
-      data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
@@ -138,15 +136,15 @@
 
           <div class="modal-footer">
             <button
+            type="button"
             id="Update"
-              type="button"
               class="btn btn-secondary"
               
               onclick="manageData()"
             >
               savechanges
             </button>
-            <button type="button" id="saveBtn" class="btn btn-primary"  value="Submit" onclick="manageData()">Save</button>
+            <button type="button" id="saveBtn" class="btn btn-primary" onclick="manageData()" >Save</button>
           </div>
         </div>
       </div>

@@ -31,6 +31,18 @@ function validateForm(){
     }
     if(password==""){
       // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
+      // alert("password is required");
       return false;
     }
     var check = /^[0-9]{4}-[0-9]{2}-[0-9]{2}/
@@ -49,11 +61,11 @@ function validateForm(){
 }
 
 
-function openmodal() {
-  document.getElementById("myForm").reset();
-  document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal");
-  document.getElementById("Update").removeAttribute("data-bs-dismiss","modal");
-}
+// function openmodal() {
+//   document.getElementById("myForm").reset();
+//   document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal");
+//   document.getElementById("Update").removeAttribute("data-bs-dismiss","modal");
+// }
 
 
 
@@ -94,9 +106,11 @@ function manageData() {
   // document.getElementById("myForm").reset();
 
   if(validateForm()==true){
-  document.getElementById("saveBtn").setAttribute("data-bs-dismiss","modal")
-  document.getElementById("Update").setAttribute("data-bs-dismiss","modal")
- 
+  
+  document.getElementById("saveBtn").setAttribute("data-bs-dismiss","modal");
+  document.getElementById("Update").setAttribute("data-bs-dismiss","modal");
+    console.log("True");
+
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
   var number = document.getElementById("number").value;
@@ -133,11 +147,11 @@ function manageData() {
   // document.getElementById("password").value = "";
   // document.getElementById("date").value = "";
   //  document.querySelector('input[name=gender]:checked').value = "";
-    
+    location.reload()
   }else{
-    console.log("inside else")
-    document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal")
-    document.getElementById("Update").removeAttribute("data-bs-dismiss","modal")
+    // console.log("inside else")
+    // document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal")
+    // document.getElementById("Update").removeAttribute("data-bs-dismiss","modal")
    
   }
   
@@ -145,10 +159,7 @@ function manageData() {
 
 // Delete
 
-function deleteData(index) {
-
-
-  
+function deleteData(index) {  
   var peopleList;
   // if (localStorage.getItem("peopleList") == null) {
   //   peopleList = [];
@@ -185,9 +196,9 @@ function updateData(index) {
 
   document.querySelector("#Update").onclick = function () {
 
-    if(validateForm()==true){
-      document.getElementById("saveBtn").setAttribute("data-bs-dismiss","modal")
-      document.getElementById("Update").setAttribute("data-bs-dismiss","modal")
+    // if(validateForm()==true){
+    //   document.getElementById("saveBtn").setAttribute("data-bs-dismiss","modal")
+    //   document.getElementById("Update").setAttribute("data-bs-dismiss","modal")
 
     peopleList[index].name = document.getElementById("name").value;
     peopleList[index].email = document.getElementById("email").value;
@@ -195,23 +206,23 @@ function updateData(index) {
     peopleList[index].password = document.getElementById("password").value;
     peopleList[index].date = document.getElementById("date").value;
  
-
+    location.reload()
     localStorage.setItem("peopleList", JSON.stringify(peopleList));
-    showData();
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("number").value = "";
-    document.getElementById("password").value = "";
-    document.getElementById("date").value = "";
+    // showData();
+    // document.getElementById("name").value = "";
+    // document.getElementById("email").value = "";
+    // document.getElementById("number").value = "";
+    // document.getElementById("password").value = "";
+    // document.getElementById("date").value = "";
 
 
     document.getElementById("saveBtn").style.display = "block";
     document.getElementById("Update").style.display = "none";
-    }
-    else{
-      document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal")
-      document.getElementById("Update").removeAttribute("data-bs-dismiss","modal")
-    }
+    // }
+    // else{
+      // document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal")
+      // document.getElementById("Update").removeAttribute("data-bs-dismiss","modal")
+    // }
   };
 }
 
