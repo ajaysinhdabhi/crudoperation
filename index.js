@@ -5,52 +5,55 @@ function validateForm(){
   var number = document.getElementById("number").value;
   var password = document.getElementById("password").value;
   var date = document.getElementById("date").value;
-  var gender = document.querySelector('input[name=gender]:checked').value;
+  
   
 
 
     if(name==""){
-      alert("Name is required");
+      // alert("Name is required");
       return false;
     }
     if(email==""){
-      alert("Email is required");
+      // alert("Email is required");
       return false;
     }
     else if(!email.includes('@')){
-      alert("Invalid email");
+      // alert("Invalid email");
       return false;
     }
     if(number==""){
-      alert("phone number is required");
+      // alert("phone number is required");
       return false;
     }
     else if(number<1){
-      alert("Invalid mobile number");
+      // alert("Invalid mobile number");
       return false;
     }
     if(password==""){
-      alert("password is required");
+      // alert("password is required");
       return false;
     }
     var check = /^[0-9]{4}-[0-9]{2}-[0-9]{2}/
     if(check.test(date) == false){
-      alert("date is required");
-      console.log("Inside");
+      // alert("date is required");
+      // console.log("Inside");
       return false;
     }
     else if(check.test(date) == true){
-      return true
+      // return true
     }
-    if(gender==""){
-      alert("date is required");
-      return false;
-    }
+   
 
     return true;
   
 }
 
+
+function openmodal() {
+  document.getElementById("myForm").reset();
+  document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal");
+  document.getElementById("Update").removeAttribute("data-bs-dismiss","modal");
+}
 
 
 
@@ -71,7 +74,7 @@ function showData() {
     html += "<td>" + element.number + "</td>";
     html += "<td>" + element.password + "</td>";
     html += "<td>" + element.date + "</td>";
-    html += "<td>" + element.gender + "</td>";
+    
     html +=
       '<td><button onclick="deleteData(' +
       index +
@@ -91,13 +94,15 @@ function manageData() {
   // document.getElementById("myForm").reset();
 
   if(validateForm()==true){
-
+  document.getElementById("saveBtn").setAttribute("data-bs-dismiss","modal")
+  document.getElementById("Update").setAttribute("data-bs-dismiss","modal")
+ 
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
   var number = document.getElementById("number").value;
   var password = document.getElementById("password").value;
   var date = document.getElementById("date").value;
-  var gender = document.querySelector('input[name=gender]:checked').value;
+  
 
   var peopleList;
 
@@ -113,19 +118,27 @@ function manageData() {
     number: number,
     password: password,
     date: date,
-    gender: gender,
+    
   });
 
   localStorage.setItem("peopleList", JSON.stringify(peopleList));
+  
   showData();
+  
+  
 
   // document.getElementById("name").value = "";
   // document.getElementById("email").value = "";
   // document.getElementById("number").value = "";
   // document.getElementById("password").value = "";
   // document.getElementById("date").value = "";
-  // document.querySelector('input[name=gender]:checked').value = "";
-
+  //  document.querySelector('input[name=gender]:checked').value = "";
+    
+  }else{
+    console.log("inside else")
+    document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal")
+    document.getElementById("Update").removeAttribute("data-bs-dismiss","modal")
+   
   }
   
 }
@@ -135,8 +148,7 @@ function manageData() {
 function deleteData(index) {
 
 
-  conf = confirm("want to delete data?");
-  if(conf){
+  
   var peopleList;
   // if (localStorage.getItem("peopleList") == null) {
   //   peopleList = [];
@@ -148,7 +160,7 @@ function deleteData(index) {
   localStorage.setItem("peopleList", JSON.stringify(peopleList));
   showData();
   
-  }
+  
 }
 
 // Edit
@@ -169,18 +181,20 @@ function updateData(index) {
   document.getElementById("number").value = peopleList[index].number;
   document.getElementById("password").value = peopleList[index].password;
   document.getElementById("date").value = peopleList[index].date;
-  document.querySelector('input[name=gender]:checked').value = peopleList[index].gender;
+  
 
   document.querySelector("#Update").onclick = function () {
 
     if(validateForm()==true){
+      document.getElementById("saveBtn").setAttribute("data-bs-dismiss","modal")
+      document.getElementById("Update").setAttribute("data-bs-dismiss","modal")
 
     peopleList[index].name = document.getElementById("name").value;
     peopleList[index].email = document.getElementById("email").value;
     peopleList[index].number = document.getElementById("number").value;
     peopleList[index].password = document.getElementById("password").value;
     peopleList[index].date = document.getElementById("date").value;
-    peopleList[index].gender = document.querySelector('input[name=gender]:checked').value;
+ 
 
     localStorage.setItem("peopleList", JSON.stringify(peopleList));
     showData();
@@ -189,10 +203,14 @@ function updateData(index) {
     document.getElementById("number").value = "";
     document.getElementById("password").value = "";
     document.getElementById("date").value = "";
-    document.querySelector('input[name=gender]:checked').value = "";
+
 
     document.getElementById("saveBtn").style.display = "block";
     document.getElementById("Update").style.display = "none";
+    }
+    else{
+      document.getElementById("saveBtn").removeAttribute("data-bs-dismiss","modal")
+      document.getElementById("Update").removeAttribute("data-bs-dismiss","modal")
     }
   };
 }

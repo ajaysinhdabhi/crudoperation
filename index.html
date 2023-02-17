@@ -15,14 +15,14 @@
   </head>
   <body onload="showData()">
 
-    <form action="">
+    <form action="" class="needs-validation was-validated" novalidate id="myForm">
     <!-- Button trigger modal -->
     <button
-      type="button"
+      type="reset"
       class="btn btn-primary"
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
-      onclick="resetForm()"
+      onclick="openmodal()"
       id="addBtn"
     >
       Click for Enter your details
@@ -32,9 +32,12 @@
     <div
       class="modal fade"
       id="exampleModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
+
     >
       <div class="modal-dialog">
         <div class="modal-content">
@@ -53,18 +56,24 @@
           <div class="modal-body">
             <div class="container" id="myForm">
               <div class="row">
-                <div class="form-group col-md-12 mb-3">
+                <div class="form-group col-md-12 mb-4 position-relative">
                   <label for="name" class="mb-1">Name</label>
                   <input
                     type="text"
                     name="name"
-                    class="form-control"
+                    class="form-control required"
                     id="name"
                     placeholder="Enter Name"
+                    
+                    required
                   />
+                  <div class="invalid-tooltip">
+                    Please choose Name.
+                  </div>
+                 
                 </div>
 
-                <div class="form-group col-md-12 mb-3">
+                <div class="form-group col-md-12 mb-4 position-relative">
                   <label for="email" class="mb-1">Email</label>
                   <input
                     type="email"
@@ -72,21 +81,29 @@
                     class="form-control"
                     id="email"
                     placeholder="Enter Your Email Address"
+                    required
                   />
+                  <div class="invalid-tooltip">
+                    Please choose email.
+                  </div>
                 </div>
 
-                <div class="form-group col-md-12 mb-3">
+                <div class="form-group col-md-12 mb-4 position-relative">
                   <label for="number" class="mb-1">Mobile Number</label>
                   <input
-                    type="tel" maxlength="10"
+                    type="number" 
+                    
                     name="number"
                     class="form-control"
                     id="number"
                     placeholder="Enter Your mobile number"
-                  />
+                    required
+                  /><div class="invalid-tooltip">
+                    Please choose number.
+                  </div>
                 </div>
 
-                <div class="form-group col-md-12 mb-3">
+                <div class="form-group col-md-12 mb-4 position-relative">
                   <label for="password" class="mb-1">Password</label>
                   <input
                     type="password"
@@ -94,10 +111,14 @@
                     class="form-control"
                     id="password"
                     placeholder="Enter password"
+                    required
                   />
+                  <div class="invalid-tooltip">
+                    Please choose password.
+                  </div>
                 </div>
 
-                <div class="form-group col-md-12 mb-3">
+                <div class="form-group col-md-12 mb-3 position-relative">
                   <label for="birthdate" class="mb-1">Birth-Date</label>
                   <input
                     type="date"
@@ -106,38 +127,26 @@
                     id="date"
                     required
                   />
+                  <div class="invalid-tooltip">
+                    Please choose birthdate.
+                  </div>
                 </div>
 
-                <div class="form-group col-md-12 mb-3">
-                  <label for="gender" class="mb-1">Select Gender</label
-                  >&nbsp;&nbsp;
-                  <input type="radio" id="male" name="gender" value="Male" required />
-                   <label for="male">Male</label>
-                  <input
-                    type="radio"
-                    id="female"
-                    name="gender"
-                    value="Female"
-                    required
-                  />
-                  <label for="female">Female</label>
-                  
-                </div>
               </div>
             </div>
-          </div>
+          </div>  
 
           <div class="modal-footer">
             <button
             id="Update"
               type="button"
               class="btn btn-secondary"
-              data-bs-dismiss="modal"
+              
               onclick="manageData()"
             >
               savechanges
             </button>
-            <button type="button" id="saveBtn" class="btn btn-primary" data-bs-dismiss="modal" value="Submit" onclick="manageData()">Save</button>
+            <button type="button" id="saveBtn" class="btn btn-primary"  value="Submit" onclick="manageData()">Save</button>
           </div>
         </div>
       </div>
@@ -159,7 +168,7 @@
                     <td>Number</td>
                     <td>Password</td>
                     <td>B-date</td>
-                    <td>gender</td>
+                    
                     <td>Action</td>
                 </tr>
             </thead>
